@@ -74,7 +74,7 @@
 
 <div class="container">
     <textarea id="taskInput" placeholder="Enter your task..."></textarea>
-    <button class="cool-button">Add Task</button>
+    <button onclick="add_new_task()" class="cool-button">Add Task</button>
     <table id="taskTable">
         <thead>
             <tr>
@@ -85,27 +85,49 @@
             </tr>
         </thead>
         <tbody id="taskList">
-            <tr class="completed">
-                <td >1</td>
-                <td>Write report</td>
-                <td><input type="checkbox" checked></td>
-		<td><button class="delete-button">Delete</button></td>
-            </tr>
-            <tr class="completed">
-                <td>2</td>
-                <td>Send email</td>
-                <td><input type="checkbox" checked></td>
-		<td><button class="delete-button">Delete</button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Call client</td>
-                <td><input type="checkbox"></td>
-		<td><button class="delete-button">Delete</button></td>
-            </tr>
+            
         </tbody>
     </table>
 </div>
+<script>
+    let tasks = [
+        { id: 1, task: "Write report", completed: true },
+        { id: 2, task: "Send email", completed: true },
+        { id: 3, task: "Call client", completed: false }
+    ];
+
+    function add_new_task(){
+       let input_element = document.getElementById('taskInput')
+       let new_task = {
+            id: tasks.length + 1,
+            task: input_element.value,
+            completed: false
+       }
+       tasks.push(new_task);
+       input_element.value = ''
+       show_task()
+    }
+    
+    function show_task(){
+        let tbody = document.getElementById('taskList')
+        tbody.innerHTML = '';
+        for (let i=0; i<tasks.length; i++) {
+            let task = tasks[i]
+
+            let task_html =  ` 
+                <tr class="${task.completed ? 'completed': ""}">
+                    <td>${task.id}</td>
+                    <td>${task.task}</td>
+                    <td><input type="checkbox" ${task.completed ? 'checked' : ""}></td>
+                    <td><button class="delete-button">Delete</button></td>
+                </tr>`
+
+            tbody.innerHTML += task_html
+        }
+    }
+    
+    show_task();
+</script>
 
 </body>
 </html>
