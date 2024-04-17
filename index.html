@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Note Taking App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 20px auto;
+    }
+    #taskInput {
+        width: 100%;
+        height: 100px;
+        resize: vertical;
+    }
+    #taskTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    #taskTable th, #taskTable td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    #taskTable th {
+        background-color: #f2f2f2;
+    }
+    .completed {
+        text-decoration: line-through;
+    }
+    .cool-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .cool-button:hover {
+        background-color: #45a049;
+    }
+    .delete-button {
+        background-color: #f44336;
+        border: none;
+        color: white;
+        padding: 8px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+    }
+    .delete-button:hover {
+        background-color: #cc0000;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <textarea id="taskInput" placeholder="Enter your task..."></textarea>
+    <button class="cool-button">Add Task</button>
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Task</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="taskList">
+            <tr class="completed">
+                <td >1</td>
+                <td>Write report</td>
+                <td><input type="checkbox" checked></td>
+		<td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr class="completed">
+                <td>2</td>
+                <td>Send email</td>
+                <td><input type="checkbox" checked></td>
+		<td><button class="delete-button">Delete</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Call client</td>
+                <td><input type="checkbox"></td>
+		<td><button class="delete-button">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
