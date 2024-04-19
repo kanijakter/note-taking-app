@@ -119,13 +119,28 @@
                     <td>${task.id}</td>
                     <td>${task.task}</td>
                     <td><input type="checkbox" ${task.completed ? 'checked' : ""}></td>
-                    <td><button class="delete-button">Delete</button></td>
+                    <td><button onclick="delete_task(${task.id})" class="delete-button">Delete</button></td>
                 </tr>`
 
             tbody.innerHTML += task_html
         }
     }
     
+    function delete_task(id) {
+        let index = 0;
+        for(let i=0;i<tasks.length;i++) {
+            if(tasks[i].id == id) {
+                 index = i;     
+            }
+
+        }
+        tasks.splice(index,1)
+        console.log(tasks)
+        show_task()
+    }
+ 
+
+
     show_task();
 </script>
 
