@@ -75,6 +75,8 @@
 <div class="container">
     <textarea id="taskInput" placeholder="Enter your task..."></textarea>
     <button onclick="add_new_task()" class="cool-button">Add Task</button>
+    <!-- <button onclick="logOut()" class="cool-button">Log Out </button> -->
+    <a href="main.html" class="cool-button">Log Out </a>
     <table id="taskTable">
         <thead>
             <tr>
@@ -150,6 +152,10 @@
        
        show_task()
         
+    }
+
+    function logOut() {
+        window.location.href = "main.html"
     }
    
     show_task();

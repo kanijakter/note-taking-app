@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .login-status {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <input id="username" type="text" name="username" placeholder="Username">
+        <input id="password" type="password" name="password" placeholder="Password">
+        <input  onclick = "login ()" type="submit" value="Login">
+    </div>
+
+    <div class="login-status" id="loginStatus"></div>
+    
+    <script >
+        const students = [
+    { id: "201311089", password: "123456" },
+    { id: "201400123", password: "abcdef" },
+    { id: "201500456", password: "qwerty" },
+    { id: "201600789", password: "password123" },
+  ];
+  
+  function login () {
+     let user_id=document.getElementById('username').value
+     console.log(user_id);
+     let user_pass=document.getElementById('password').value
+     console.log(user_pass);
+     console.log(checkLogin(user_id,user_pass));
+     let status=document.getElementById('loginStatus')
+     if (checkLogin(user_id,user_pass)==true)    window.location.href = "index.html";
+  
+     else status.innerHTML= 'Login failed'
+     
+     
+    
+
+  }
+  
+  function checkLogin(id, password) {
+        let isLogin = false;
+        for(let i=0;i<students.length;i++) {
+           let student_data = students[i];
+          
+           if(student_data.id == id && student_data.password ==    password) {
+            isLogin = true
+          
+           }
+           
+        }
+        return isLogin;
+  }
+  
+  
+  
+  // Example usage:
+//   const id = "201311089";
+//   const password = "123456";
+//   console.log(checkLogin(id, password));
+    </script>
+    
+</body>
+</html>
